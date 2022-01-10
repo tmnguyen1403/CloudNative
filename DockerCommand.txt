@@ -1,0 +1,19 @@
+FROM = sets the base image
+
+RUN - execute a command
+
+COPY & ADD - copy files from host to the container
+
+CMD - default command to execute when the container starts
+
+EXPOSE - expose a port
+
+Example:
+FROM python:3.8
+LABEL maintainer="KV"
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirments.txt
+ß
+#command to runon container start
+CMD ["python", "app.py"]
