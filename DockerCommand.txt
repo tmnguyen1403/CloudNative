@@ -17,3 +17,43 @@ RUN pip install -r requirments.txt
 ß
 #command to runon container start
 CMD ["python", "app.py"]
+
+#build an image
+$ docker build [OPTIONS] PATH
+-t, --tag - name and tag of the image
+-f, --file - name of the Dockerfile
+--build-arg - set build-time variables
+
+#Example
+docker build -t python-helloworld 
+docker build -t python-helloworld lesson1/python-app
+
+#run and test an image
+$ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+-d, --detach - run in the background
+-p, --publish - expose container port to host
+-it - interactive shell
+
+#Example: run the python-helloworld in detached mode and expose it on port 5111
+$ docker run -d -p 5111:5000 \ python-helloworld
+
+#Docker Registry
+_store, distribute, public image registries on DockerHub
+Tag- version control
+#tag an image
+$ docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+#Example
+$ docker tag python-helloworld my_repo/python-helloworld:v1.0.0
+
+#push an image
+$ docker push NAME[:TAG]
+$ docker push my_repo/python-helloworld:v1.0.0
+-->Docker will build an OCI Compliant Images that can run on any OCI containers
+
+Further reading:
+
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+https://www.docker.com/blog/demystifying-open-container-initiative-oci-specifications/
+https://buildpacks.io/docs/app-journey/
+
