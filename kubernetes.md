@@ -31,4 +31,11 @@ Worker node - a node from the Kubernetes data plane, that has installed componen
 ## References
 https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
 
+## Create a Kubernete cluster
+1. Install Virtualbox and Vagrant box to run a virtual machine
+2. Create a file named `Vagrantfile` for vagrant configuration
+3. Run `$ vagrant up` in the current location of the vagrant config file
+4. Run `$ vagrant ssh` to access to the running virtual machine
+5. Install k3s - lightweight kubernete version - in the vagrant box
+6. Run `$ kubectl get no` to create a node
 
