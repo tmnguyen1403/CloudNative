@@ -29,8 +29,8 @@ Master node - a node from the Kubernetes control plane, that has installed compo
 Worker node - a node from the Kubernetes data plane, that has installed components to host workloads
 
 ## References
-https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
-
+1. https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
+2. Cheat Sheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 ## Create a Kubernete cluster
 1. Install Virtualbox and Vagrant box to run a virtual machine
 2. Create a file named `Vagrantfile` for vagrant configuration
@@ -39,3 +39,7 @@ https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
 5. Install k3s - lightweight kubernete version - in the vagrant box
 6. Run `$ kubectl get no` to create a node
 
+## Create a test pod to test internal service connection
+$ kubectl run test-$RANDOM -n=demo --rm -it --image=alpine -- sh
+This command creates an interactive pod with random name. It will be deleted after exit.
+### Type $ exit to close the interactive shell
