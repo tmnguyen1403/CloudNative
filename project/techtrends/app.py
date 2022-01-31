@@ -36,13 +36,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.debug("Post does not exist: {id}".format(id=post_id))
       return render_template('404.html'), 404
     else:
+      app.logger.debug("Post retrieved: {title}".format(title=post["title"]))
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.debug("Retrieved About Us")
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -56,15 +59,56 @@ def create():
             flash('Title is required!')
         else:
             connection = get_db_connection()
-            connection.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
+            try:
+                with connection:
+                    connection.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
                          (title, content))
-            connection.commit()
+            except:
+                app.logger.debug("Error creating article {title}"
+                .format(title=title))
+            else:
+                app.logger.debug("Article {title} is created successfully".format(title=title))
+
             connection.close()
 
             return redirect(url_for('index'))
 
     return render_template('create.html')
 
+#Helpers
+def createJsonResponse(message, status):
+    return app.response_class(
+        response=json.dumps(message),
+        status=status,
+        mimetype='application/json',
+
+    )
+#Define healthcheck endpoint
+@app.route('/healthz')
+def healthz():
+    message = {"result": "OK - healthy"}
+    return createJsonResponse(message, 200)
+
+#Define metric endpoint
+@app.route('/metrics')
+def metrics():
+    app.logger.debug("Test debug")
+    total_posts = None
+    #Get total of posts
+    connection = get_db_connection()
+    number_posts = connection.execute('SELECT COUNT(1) FROM posts').fetchone()
+    if number_posts:
+        print("Posts: ", number_posts[0])
+        total_posts = number_posts[0]
+    connection.close()
+    #
+    message = {
+        "db_connection_count": 1,
+        "post_count": total_posts
+    }
+
+    return createJsonResponse(message, 200)
+ 
 # start the application on port 3111
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port='3111')
+   app.run(host='0.0.0.0', port='3111', debug=True)

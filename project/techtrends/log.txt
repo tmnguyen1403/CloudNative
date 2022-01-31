@@ -1,0 +1,21 @@
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 153-645-615
+172.17.0.1 - - [31/Jan/2022 20:06:08] "GET / HTTP/1.1" 200 -
+[2022-01-31 20:07:07,302] DEBUG in app: Retrieved About Us
+172.17.0.1 - - [31/Jan/2022 20:07:07] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [31/Jan/2022 20:07:09] "GET /create HTTP/1.1" 200 -
+[2022-01-31 20:07:11,885] DEBUG in app: Retrieved About Us
+172.17.0.1 - - [31/Jan/2022 20:07:11] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [31/Jan/2022 20:07:13] "GET /create HTTP/1.1" 200 -
+172.17.0.1 - - [31/Jan/2022 20:07:14] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [31/Jan/2022 20:07:17] "GET /create HTTP/1.1" 200 -
+[2022-01-31 20:07:20,170] DEBUG in app: Article te is created successfully
+172.17.0.1 - - [31/Jan/2022 20:07:20] "POST /create HTTP/1.1" 302 -
+172.17.0.1 - - [31/Jan/2022 20:07:20] "GET / HTTP/1.1" 200 -

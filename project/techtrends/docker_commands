@@ -1,0 +1,37 @@
+## Docker commands used to build the application 
+# TODO: insert the docker build command
+$ docker build -t techtrends .
+
+## Docker commands used to run the application
+# TODO: insert the docker run command
+$ docker run --name techtrends -d -p 7111:3111 techtrends
+
+## Docker commands used to get the application logs
+# TODO: insert the docker logs command
+$ docker logs --timestamps techtrends
+
+## Logs from the container running the TechTrends application
+">&" redirect stdout and stderr, appending it to docker_commands
+$ docker logs --timestamps techtrends >>& docker_commands 
+# TODO: paste logs from the Docker container2022-01-31T20:04:35.960073823Z  * Serving Flask app "app" (lazy loading)
+2022-01-31T20:04:35.960073823Z  * Serving Flask app "app" (lazy loading)
+2022-01-31T20:04:35.960182876Z  * Environment: production
+2022-01-31T20:04:35.960190666Z    WARNING: This is a development server. Do not use it in a production deployment.
+2022-01-31T20:04:35.960250224Z    Use a production WSGI server instead.
+2022-01-31T20:04:35.960260951Z  * Debug mode: on
+2022-01-31T20:04:35.966073671Z  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+2022-01-31T20:04:35.966955494Z  * Restarting with stat
+2022-01-31T20:04:36.115227347Z  * Debugger is active!
+2022-01-31T20:04:36.116221192Z  * Debugger PIN: 153-645-615
+2022-01-31T20:06:08.308252707Z 172.17.0.1 - - [31/Jan/2022 20:06:08] "GET / HTTP/1.1" 200 -
+2022-01-31T20:07:07.303248704Z [2022-01-31 20:07:07,302] DEBUG in app: Retrieved About Us
+2022-01-31T20:07:07.317003956Z 172.17.0.1 - - [31/Jan/2022 20:07:07] "GET /about HTTP/1.1" 200 -
+2022-01-31T20:07:09.627008490Z 172.17.0.1 - - [31/Jan/2022 20:07:09] "GET /create HTTP/1.1" 200 -
+2022-01-31T20:07:11.888112226Z [2022-01-31 20:07:11,885] DEBUG in app: Retrieved About Us
+2022-01-31T20:07:11.888144630Z 172.17.0.1 - - [31/Jan/2022 20:07:11] "GET /about HTTP/1.1" 200 -
+2022-01-31T20:07:13.457287631Z 172.17.0.1 - - [31/Jan/2022 20:07:13] "GET /create HTTP/1.1" 200 -
+2022-01-31T20:07:14.923020813Z 172.17.0.1 - - [31/Jan/2022 20:07:14] "GET / HTTP/1.1" 200 -
+2022-01-31T20:07:17.442767424Z 172.17.0.1 - - [31/Jan/2022 20:07:17] "GET /create HTTP/1.1" 200 -
+2022-01-31T20:07:20.171317812Z [2022-01-31 20:07:20,170] DEBUG in app: Article te is created successfully
+2022-01-31T20:07:20.173738479Z 172.17.0.1 - - [31/Jan/2022 20:07:20] "POST /create HTTP/1.1" 302 -
+2022-01-31T20:07:20.185517149Z 172.17.0.1 - - [31/Jan/2022 20:07:20] "GET / HTTP/1.1" 200 -
