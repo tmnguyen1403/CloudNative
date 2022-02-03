@@ -1,5 +1,5 @@
 FROM python:3.9
-COPY . /app
+COPY ./project/techtrends /app
 WORKDIR /app
 RUN ls -la
 RUN pip install -r requirements.txt
