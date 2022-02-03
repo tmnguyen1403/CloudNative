@@ -17,14 +17,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Change working directory
-        run:  |
-          pwd
-          ls -la
-          cd project/techtrends
-      -
         name: Build and push
         uses: docker/build-push-action@v2
         with:
+          context: "{{defaultContext}}:project:techtrends"
           push: true
           tags: user/techtrends:latest
