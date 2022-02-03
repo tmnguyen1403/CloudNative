@@ -18,7 +18,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Change working directory
-        run: cd ./project/techtrends
+        run:  |
+          pwd
+          cd ./project/techtrends
       -
         name: Build and push
         uses: docker/build-push-action@v2
