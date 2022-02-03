@@ -19,7 +19,7 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v2
-        working-directory: ./project/techtrends
         with:
+          file: ./project/techtrends/Dockerfile
           push: true
           tags: user/techtrends:latest
