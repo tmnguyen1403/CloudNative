@@ -20,6 +20,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: "{{defaultContext}}:project:techtrends"
+          context: "{{defaultContext}}/project/techtrends"
           push: true
           tags: user/techtrends:latest
