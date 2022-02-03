@@ -22,4 +22,4 @@ jobs:
         with:
           file: ./project/techtrends/Dockerfile
           push: true
-          tags: user/techtrends:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
