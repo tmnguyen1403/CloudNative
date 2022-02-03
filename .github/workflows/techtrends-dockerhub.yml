@@ -20,7 +20,8 @@ jobs:
         name: Change working directory
         run:  |
           pwd
-          cd ./project/techtrends
+          ls -la
+          cd project/techtrends
       -
         name: Build and push
         uses: docker/build-push-action@v2
