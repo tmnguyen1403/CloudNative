@@ -39,4 +39,36 @@
 -- It is okay to have duplicate code
 -- https://overreacted.io/goodbye-clean-code/
 -- https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction?duplication
--- 
+
+## REST (representational state transfer)
+1. Client-Server
+-- A client makes a request and receives a repsonse from the server
+-- The client doesnt' need to know all the details in how the server is implemented
+2. Statelessness
+-- The server should not be keeping track of the context of client requests
+Each inbound request should have all the information necessary to process the request.
+3. Cacheability
+-- REsponses can potentially be cached for improved performance.
+Client shouldn't care about their responses being cached
+4. Layered System
+-- The client makes requests against an API endpoint and receives a response. The request may have gone through layers of a system
+(proxy, load balancer, etc...)
+5. Uniform interface
+-- The interface should be consistent, and API messages and endpoints should be self-describing.
+6. HTTP REQUEST
+-- Method (POST -create, GET-retrieve, PUT-replace, PATCH-update, DELETE-delete)
+-- Endpoint - URL to send the request
+-- Header - additional metadata
+-- Body - content
+7. HTTP Response
+-- Response code- status of the HTTP request
+-- Header - additional metadata
+-- Body - content
+8. URL
+/api/items/<item_id>?created_by=<user_id>
+-- item_id is a path parameter
+-- user_id is a query parameter
+### Best practices review
+-- Stripe, Twilio, Plaid, Trello, Digital Ocean, Google Docs, Slack
+https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+
