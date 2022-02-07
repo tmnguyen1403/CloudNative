@@ -72,3 +72,15 @@ Client shouldn't care about their responses being cached
 -- Stripe, Twilio, Plaid, Trello, Digital Ocean, Google Docs, Slack
 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 
+## gRPC
+-- a message passing technique developed by Google
+-- greater performance at the expense of less flexibility
+-- HTTP/2 Transport
+-- Binary Data
+-- Protocol Buffers - way to serialize messages
+++ backwards & forwards commpatible - can ignore unknown fields
+++ Data is structured
+-- Use cases: speed, microservices (pass message among internal modules), mobile devices
+### References
+1. https://en.wikipedia.org/wiki/HTTP/2
+2. https://developers.google.com/protocol-buffers/docs/overview
