@@ -84,3 +84,10 @@ https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 ### References
 1. https://en.wikipedia.org/wiki/HTTP/2
 2. https://developers.google.com/protocol-buffers/docs/overview
+## Message Queue
+-- improve performance, reliability, and enable decoupling of systems
+-- usage: can't handle the load of messages, want to process messages in batches instead of on-demand, or avoid losing messages during downtime.
+Queue services:
+1. Kafka - https://kafka.apache.org/uses
+2. RabbitMQ - https://www.rabbitmq.com/
+3. AWS SQS - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-how-it-works.html
